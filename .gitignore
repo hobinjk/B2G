@@ -31,6 +31,8 @@ librecovery/
 ndk/
 objdir-gecko*/
 out/
+packages/
+pdk/
 prebuilt/
 prebuilts/
 rilproxy/
