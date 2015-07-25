@@ -1,0 +1,24 @@
+PRODUCT_OUT=$B2G_HOME/out/target/product/flame
+adb root
+sleep 2
+adb shell "mount -o rw,remount /system"
+adb push $PRODUCT_OUT/system/app /system/app
+adb push $PRODUCT_OUT/system/framework /system/framework
+ROOT=/system/dalvy-walvy
+adb shell "mkdir $ROOT"
+adb push $PRODUCT_OUT/system/bin/app_process $ROOT/
+# libs="libdvm.so libskia.so"
+# for lib in $libs
+# do
+#   adb push $PRODUCT_OUT/system/lib/$lib $ROOT/
+# done
+adb push $PRODUCT_OUT/system/lib/ $ROOT/
+adb push $PRODUCT_OUT/system/lib/libart.so $ROOT/libdvm.so
+adb push $PRODUCT_OUT/system/bin/am $ROOT/
+adb push $PRODUCT_OUT/system/bin/surfaceflinger $ROOT/
+adb push $PRODUCT_OUT/system/bin/dex2oat /system/bin/
+adb push zygote.sh /system/bin/
+
+adb shell mv /system/bin/settings $ROOT/
+adb push settings /system/bin
+adb reboot
