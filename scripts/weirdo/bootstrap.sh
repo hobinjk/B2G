@@ -3,6 +3,7 @@ adb root
 sleep 2
 adb shell "mount -o rw,remount /system"
 adb push $PRODUCT_OUT/system/app /system/app
+adb push $PRODUCT_OUT/system/priv-app /system/priv-app
 adb push $PRODUCT_OUT/system/framework /system/framework
 ROOT=/system/dalvy-walvy
 adb shell "mkdir $ROOT"

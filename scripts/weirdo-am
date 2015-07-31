@@ -1,0 +1,12 @@
+#!/system/bin/sh
+#
+# Script to start "am" on the device, which has a very rudimentary
+# shell.
+#
+base=/system
+export CLASSPATH=$base/framework/am.jar
+root=/system/dalvy-walvy
+
+cd $root
+LD_LIBRARY_PATH=".:$LD_LIBRARY_PATH" ./app_process $base/bin com.android.commands.am.Am "$@"
+
