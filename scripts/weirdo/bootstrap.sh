@@ -8,16 +8,14 @@ adb push $PRODUCT_OUT/system/framework /system/framework
 ROOT=/system/dalvy-walvy
 adb shell "mkdir $ROOT"
 adb push $PRODUCT_OUT/system/bin/app_process $ROOT/
-# libs="libdvm.so libskia.so"
-# for lib in $libs
-# do
-#   adb push $PRODUCT_OUT/system/lib/$lib $ROOT/
-# done
 adb push $PRODUCT_OUT/system/lib/ $ROOT/
 adb push $PRODUCT_OUT/system/lib/libart.so $ROOT/libdvm.so
 adb push $PRODUCT_OUT/system/bin/am $ROOT/
 adb push $PRODUCT_OUT/system/bin/surfaceflinger $ROOT/
 adb push $PRODUCT_OUT/system/bin/dex2oat /system/bin/
+adb push dexopt /system/bin/
+adb push $PRODUCT_OUT/system/bin/dexopt $ROOT/
+adb shell ln -s /system/dalvy-walvy/app_process /system/bin/app_process
 adb push zygote.sh /system/bin/
 
 adb shell mv /system/bin/settings $ROOT/
