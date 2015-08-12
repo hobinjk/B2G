@@ -1,0 +1,4 @@
+#!/system/bin/sh
+echo "dexopt: $@" > .tmp.not-a-thing
+logwrapper cat .tmp.not-a-thing
+LD_LIBRARY_PATH="/system/dalvy-walvy:$LD_LIBRARY_PATH" exec /system/dalvy-walvy/dexopt $@
