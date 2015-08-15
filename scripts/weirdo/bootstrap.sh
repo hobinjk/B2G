@@ -5,6 +5,7 @@ adb shell "mount -o rw,remount /system"
 adb push $PRODUCT_OUT/system/app /system/app
 adb push $PRODUCT_OUT/system/priv-app /system/priv-app
 adb push $PRODUCT_OUT/system/framework /system/framework
+adb push $PRODUCT_OUT/system/fonts /system/fonts
 ROOT=/system/dalvy-walvy
 adb shell "mkdir $ROOT"
 adb push $PRODUCT_OUT/system/bin/app_process $ROOT/
