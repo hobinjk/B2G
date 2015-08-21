@@ -1,5 +1,5 @@
 # How To Run Flamdroid
-Clone two hobinjk/B2G repositories. One will be the runtime donor, the other will be
+Clone two hobinjk/B2G repositories. One will be the runtime donor/parasite, the other will be
 the host.
 
 ## Host build
